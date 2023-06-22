@@ -12,8 +12,37 @@
  * @return {string[]}
  */
 function letterCombinations(digits: string): string[] {
-  
-  return [];
+ if(!digits.length)  return [];
+
+  const lettersMap: { [key: string]: string } = {
+    '2': 'abc',
+    '3': 'def',
+    '4': 'ghi',
+    '5': 'jkl',
+    '6': 'mno',
+    '7': 'pqrs',
+    '8': 'tuv',
+    '9': 'wxyz',
+    '0': ' ',
+  };
+  const result: string[] = [];
+
+  function backtrack(combination: string, nextDigits: string) {
+    if (!nextDigits.length) {
+      result.push(combination);
+    } else {
+      const letters = lettersMap[nextDigits[0]];
+      for (let i = 0; i < letters.length; i++) {
+        backtrack(combination + letters[i], nextDigits.slice(1));
+      }
+    }
+  }
+  backtrack('', digits)
+
+
+
+
+
 }
 const task3Cases = [
   {
