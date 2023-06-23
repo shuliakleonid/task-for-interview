@@ -33,5 +33,6 @@ const t2 = [
 ];
 for (const test of t2) {
   const res = groupAnagrams(test.i);
-  console.log(res, res === test.o);
+
+  console.log(res,'expected',test.o );
 }
