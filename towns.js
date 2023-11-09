@@ -24,9 +24,12 @@ const groupByCity = (array) => {
     const result = {}
     for (const {city, name} of peoples) {
         if (!result[city]) {
-            result[city] = []
+            result[city] = name
+        }else if(Array.isArray(result[city])){
+            result[city].push(name)
+        }else {
+            result[city] = [result[city], name]
         }
-        result[city].push(name)
     }
     return result
 }
