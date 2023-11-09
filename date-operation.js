@@ -59,3 +59,11 @@ function sortOperations(operations) {
 }
 
 console.log(sortOperations(operations));;
+o
+const getCardDarkStatus = (index) => {
+    if ((windowSize.width > 761 && (index === 1 || index === 3)) ||
+        (windowSize.width < 761 && (index === 1 || index === 2))) {
+        return true;
+    }
+    return false;
+};
